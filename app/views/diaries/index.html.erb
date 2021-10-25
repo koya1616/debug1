@@ -1,0 +1,43 @@
+<h1>diary</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Body</th>
+            <th colspan></th>
+        </tr>    
+    </thead>  
+
+    <tbody>
+        <% @diary.each do |diary| %> 
+        <tr>
+            <td><%= diary.title %></td>
+            <td><%= diary.body %></td>
+            <td><%= link_to "Show", diary_path(diary) %></td>
+            <td><%= link_to "Edit", edit_diary_path(diary) %></td>
+            <td><%= link_to "Destroy", diary_path(diary), method: :delete, "data-confirm" => "Are you sure" %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>   
+
+<h1>New diary</h1>
+	
+	<% if @diary.errors.any? %>
+    	<%= @diary.errors.count %>error prohibited this diary from being saved:
+    	<% @diary.errors.full_messages.each do |message| %>
+  	        <%= message %>
+    	<% end %>
+    <% end %>		
+  
+
+<%= form_with model:@diary, local:true do |f| %>
+    <h4>Title</h4>
+    <%= f.text_field :title %>
+ 
+    <h4>Body</h4>
+    <%= f.text_area :body %>
+    
+ 	<%= f.submit 'Create diary' %>
+<% end %>

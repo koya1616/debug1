@@ -1,0 +1,7 @@
+ルーティングの記述の仕方は　"コントローラー名#アクション名"
+ルーティングの記述方法（参考記事：https://www.sejuku.net/blog/13078, https://qiita.com/akk11_k/items/a6a21beb2b736ebbc147）
+
+コードは決められた形で書かないとエラーがでます。
+（参考記事：https://qiita.com/kodai_0122/items/21d1f704ecd4aaf7fa35）
+
+定義されているものがスペルミスなどがないか確認を！

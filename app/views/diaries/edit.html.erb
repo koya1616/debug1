@@ -1,0 +1,17 @@
+<h1>Editing Diary</h1>
+<%= form_with model:diary, local:true do |f| %>
+<% if @diary.errors.any? %>
+        <%= @diary.errors.count %>error prohibited this diary from being saved:
+        <% @diary.errors.full_messages.each do |message| %>
+            <%= message %>
+        <% end %>
+    <% end %>
+    <h4>title</h4>
+    <%= f.text_field :title %>
+    <h4>body</h4>
+    <%= f.text_area :body %>
+    <%= f.submit 'Update Diary' %>    
+<% end %>
+
+<%= link_to 'Show', "/diaries/#{@diary.id}" %>
+<%= link_to 'Back', '/diaries' %>
